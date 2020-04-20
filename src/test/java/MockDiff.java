@@ -81,7 +81,8 @@ public class MockDiff {
         assertEquals("Returned", spyList.get(0));
     }
 	
-	//Mockito posiada uproszczony model stubowania - metody powtarzane sa z stubowana wartoscia bez wzgledy na to ile razy byla wywolana.
+	//Mockito posiada uproszczony model stubowania - metody pow
+	//tarzane sa z stubowana wartoscia bez wzgledy na to ile razy byla wywolana.
 	@Test
 	public void multiple_mockito() {
 		Mockito.when(mockito.getName()).thenReturn("Returned");
