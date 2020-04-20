@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 
-public class CatTest {
+public class CarTest {
     private Car myFerrari = mock(Car.class);
 
     @Test
