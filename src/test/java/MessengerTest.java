@@ -1,3 +1,5 @@
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doAnswer;
 
@@ -24,6 +26,19 @@ public class MessengerTest {
 		verify(te).prepareMessage(t, c);
 		verify(c).getEmail();
 		verify(ms).send("mail@gmail.com", "Message");
+	}
+	
+	@Test
+	public void sendMesessageasserts() {
+		Messenger mess = new Messenger(ms,te);
+		when(te.prepareMessage(t,c)).thenReturn("test1");
+		when(c.getEmail()).thenReturn("test2");
+		
+		assertEquals("test2", c.getEmail());
+		assertEquals("test1", te.prepareMessage(t, c));
+		
+		verify(te).prepareMessage(t, c);
+		verify(c).getEmail();
 	}
 	
 	

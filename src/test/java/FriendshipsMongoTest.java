@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-public class FriendshipsMongoEasyMockTest {
+public class FriendshipsMongoTest {
 
 	@Mock
     private FriendsCollection friends;
