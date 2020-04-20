@@ -29,6 +29,7 @@ public class FriendshipsMongoTest {
 	public void mockingWorksAsexpected(){
 		Mockito.doReturn(joe).when(friends).findByName("Joe");
 		assertThat(friends.findByName("Joe")).isEqualTo(joe);
+		verify(friends).findByName("Joe");
 	}
 
 	@Test
