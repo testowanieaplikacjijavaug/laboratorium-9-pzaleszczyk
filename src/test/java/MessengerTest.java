@@ -34,16 +34,17 @@ public class MessengerTest {
 	}
 	
 	@Test
-	public void sendMesessageasserts() {
+	public void testSendMessageSpy() {
 		Messenger mess = new Messenger(sms,ste);
 		when(ste.prepareMessage(st,sc)).thenReturn("test1");
 		when(sc.getEmail()).thenReturn("test2");
 		
-		assertEquals("test2", sc.getEmail());
-		assertEquals("test1", ste.prepareMessage(st, sc));
+		mess.sendMessage(sc, st);
 		
 		verify(ste).prepareMessage(st, sc);
 		verify(sc).getEmail();
+		verify(sms).send("test2","test1");
+
 	}
 	
 	
