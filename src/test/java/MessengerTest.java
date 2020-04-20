@@ -14,6 +14,11 @@ public class MessengerTest {
 	MailServer ms = mock(MailServer.class);
 	TemplateEngine te = mock(TemplateEngine.class);
 	
+	Template st = spy(Template.class);
+	Client sc = spy(Client.class);
+	MailServer sms = spy(MailServer.class);
+	TemplateEngine ste = spy(TemplateEngine.class);
+	
 	
 	@Test
 	public void sendMesessage() {
@@ -30,15 +35,15 @@ public class MessengerTest {
 	
 	@Test
 	public void sendMesessageasserts() {
-		Messenger mess = new Messenger(ms,te);
-		when(te.prepareMessage(t,c)).thenReturn("test1");
-		when(c.getEmail()).thenReturn("test2");
+		Messenger mess = new Messenger(sms,ste);
+		when(ste.prepareMessage(st,sc)).thenReturn("test1");
+		when(sc.getEmail()).thenReturn("test2");
 		
-		assertEquals("test2", c.getEmail());
-		assertEquals("test1", te.prepareMessage(t, c));
+		assertEquals("test2", sc.getEmail());
+		assertEquals("test1", ste.prepareMessage(st, sc));
 		
-		verify(te).prepareMessage(t, c);
-		verify(c).getEmail();
+		verify(ste).prepareMessage(st, sc);
+		verify(sc).getEmail();
 	}
 	
 	
